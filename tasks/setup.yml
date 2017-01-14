@@ -1,0 +1,24 @@
+- name: Add deb repo Haproxy
+  apt_repository:
+    repo: "{{ haproxy_repo_deb }}"
+
+- name: Add deb-src repo Haproxy
+  apt_repository:
+    repo: "{{ haproxy_repo_deb_src }}"
+
+- name: Generate {{ haproxy_apt_preference_file }} apt preference
+  template: src="{{ haproxy_apt_preference_template }}" dest={{ haproxy_apt_preference_file }}
+
+- name: Install Haproxy
+  apt:
+    name: haproxy
+    install_recommends: no
+    update_cache: yes
+
+- service: name=haproxy state=started
+#
+#- name: Install Haproxy
+#  apt:
+#    name: haproxy
+#    install_recommends: no
+#    update_cache: yes

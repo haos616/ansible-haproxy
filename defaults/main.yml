@@ -1,0 +1,14 @@
+# System
+sudoers_file: "/etc/sudoers"
+
+haproxy_user: "root"
+haproxy_repo_deb: "deb http://httpredir.debian.org/debian jessie-backports main"
+haproxy_repo_deb_src: "deb-src http://httpredir.debian.org/debian jessie-backports main"
+haproxy_certs_dir: "/etc/ssl/certs"
+haproxy_ip: "0.0.0.0"
+haproxy_apt_preference_file: "/etc/apt/preferences.d/haproxy"
+haproxy_apt_preference_template: "preferences/haproxy.j2"
+haproxy_config_template: "haproxy.cfg.j2"
+haproxy_config_file: "/etc/haproxy/haproxy.cfg"
+
+haproxy_certs: []
