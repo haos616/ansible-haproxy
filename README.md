@@ -1,6 +1,9 @@
 # Using Haproxy
 
 ```
-letsencrypt_admin_email: "admin@example.com"
-letsencrypt_domain: "example.com"
+haproxy_domains:
+  - { name: example.com, host: '127.0.0.1', port: 80 }
+
+haproxy_certs: []
+ - example.com.pem
 ```

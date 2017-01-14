@@ -1,4 +1,6 @@
-- name: Generate {{ haproxy_conf_file }} haproxy conf
-  template: src="{{ haproxy_conf_template }}" dest={{ haproxy_conf_file }}
+- name: Generate {{ haproxy_config_file }} haproxy cfg
+  template:
+    src: "{{ haproxy_config_template }}"
+    dest: "{{ haproxy_config_file }}"
   notify:
     - reload haproxy
