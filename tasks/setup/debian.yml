@@ -1,1 +1,1 @@
-- include: "{{ ansible_distribution_release }}.yml"
+- include: "debian/{{ ansible_distribution_release }}.yml"
