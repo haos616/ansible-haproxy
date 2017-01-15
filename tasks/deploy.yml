@@ -4,3 +4,5 @@
     dest: "{{ haproxy_config_file }}"
   notify:
     - reload haproxy
+
+- service: name=haproxy state=reloaded

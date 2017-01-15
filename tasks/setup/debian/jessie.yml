@@ -6,7 +6,7 @@
   apt_repository:
     repo: "deb-src http://httpredir.debian.org/debian jessie-backports main"
 
-- name: Generate {{ haproxy_apt_preference_file }} apt preference
+- name: Generate /etc/apt/preferences.d/haproxy apt preference
   template:
     src: "{{ haproxy_apt_preference_template }}"
     dest: "/etc/apt/preferences.d/haproxy"
