@@ -1,6 +1,3 @@
-# System
-sudoers_file: "/etc/sudoers"
-
 haproxy_user: "root"
 haproxy_certs_dir: "/etc/ssl/certs"
 haproxy_ip: "0.0.0.0"
