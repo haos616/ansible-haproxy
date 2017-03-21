@@ -1,0 +1,8 @@
+- assert:
+    that:
+     - "haproxy_user is defined"
+     - "haproxy_dirs is defined"
+
+- name: Creates directories
+  file: path="{{ item }}" owner="{{ haproxy_user }}" group="{{ haproxy_user }}" state=directory
+  with_items: "{{ haproxy_dirs }}"

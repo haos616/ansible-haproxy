@@ -11,13 +11,12 @@ frontend www-http
     bind {{ haproxy_ip }}:80
     redirect scheme https
 
-{% if haproxy_certs %}
 frontend www-https
     option forwardfor
     option http-server-close
     option httpclose
 
-    bind {{ haproxy_ip }}:443 ssl {% for cert in haproxy_certs %}crt {{ cert}} {% endfor %}
+    bind {{ haproxy_ip }}:443 ssl crt {{ haproxy_certs_dir }}/
 
     http-response set-header Strict-Transport-Security max-age=16000000;\ includeSubDomains;\ preload
     http-response set-header X-Frame-Options DENY
@@ -31,5 +30,3 @@ frontend www-https
 backend {{ domain.name }}-backend
     server www-{{ domain.name }} {{ domain.host }}:{{ domain.port }} check
 {% endfor %}
-
-{% endif %}
