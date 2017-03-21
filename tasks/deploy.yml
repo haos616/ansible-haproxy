@@ -1,3 +1,8 @@
+- find:
+    paths: "{{ haproxy_certs_dir }}"
+    recurse: yes
+  register: haproxy_certs_dir_find
+
 - name: Generate {{ haproxy_config_file }} haproxy cfg
   template:
     src: "{{ haproxy_config_template }}"

@@ -11,6 +11,7 @@ frontend www-http
     bind {{ haproxy_ip }}:80
     redirect scheme https
 
+{% if haproxy_certs_dir_find.matched > 0 %}
 frontend www-https
     option forwardfor
     option http-server-close
@@ -30,3 +31,5 @@ frontend www-https
 backend {{ domain.name }}-backend
     server www-{{ domain.name }} {{ domain.host }}:{{ domain.port }} check
 {% endfor %}
+
+{% endif %}
